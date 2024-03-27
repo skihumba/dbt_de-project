@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: de-project-417908
+    schema: de_project_bq_dataset
+
+    tables: 
+      - name: order_leads
+      - name: invoices
+      - name: sales_team
