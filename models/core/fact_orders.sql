@@ -20,6 +20,11 @@ with
             invoices.order_month,
             invoices.order_year,
             invoices.num_of_customers,
+
+            date_diff(
+                cast(invoices.order_datetime as date), cast(invoices.meal_datetime as date), day
+            ) as meal_lead_times,
+
             invoices.meal_price / invoices.num_of_customers as avg_cust_spend_per_meal
         from {{ ref("stg_order_leads") }} leads
         left join
